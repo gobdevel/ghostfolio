@@ -35,6 +35,7 @@ export class HeaderComponent implements OnChanges {
   @Output() signOut = new EventEmitter<void>();
 
   public hasPermissionForSocialLogin: boolean;
+  public hasPermissionForPrivateMode: boolean;
   public hasPermissionForSubscription: boolean;
   public hasPermissionToAccessAdminControl: boolean;
   public hasPermissionToAccessFearAndGreedIndex: boolean;
@@ -63,6 +64,11 @@ export class HeaderComponent implements OnChanges {
     this.hasPermissionForSocialLogin = hasPermission(
       this.info?.globalPermissions,
       permissions.enableSocialLogin
+    );
+
+    this.hasPermissionForPrivateMode = hasPermission(
+      this.info?.globalPermissions,
+      permissions.enablePrivateMode
     );
 
     this.hasPermissionForSubscription = hasPermission(
@@ -109,6 +115,7 @@ export class HeaderComponent implements OnChanges {
       data: {
         accessToken: '',
         hasPermissionToUseSocialLogin: this.hasPermissionForSocialLogin,
+        hasPermissionToUsePrivateMode: this.hasPermissionForPrivateMode,
         title: $localize`Sign in`
       },
       width: '30rem'

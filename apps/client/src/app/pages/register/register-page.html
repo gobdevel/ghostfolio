@@ -21,14 +21,15 @@
           class="d-inline-block"
           color="primary"
           mat-flat-button
-          [disabled]="!demoAuthToken || info?.isReadOnlyMode"
+          [disabled]="!demoAuthToken || info?.isReadOnlyMode ||
+          hasPermissionForPrivateMode"
           (click)="createAccount()"
         >
           <ng-container i18n>Create Account</ng-container>
         </button>
         <ng-container *ngIf="hasPermissionForSocialLogin">
           <div class="my-3 text-muted" i18n>or</div>
-          <button
+          <button [disabled]="hasPermissionForPrivateMode"
             class="d-block mb-2"
             mat-stroked-button
             (click)="onLoginWithInternetIdentity()"

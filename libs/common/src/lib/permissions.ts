@@ -17,6 +17,7 @@ export const permissions = {
   enableImport: 'enableImport',
   enableBlog: 'enableBlog',
   enableSocialLogin: 'enableSocialLogin',
+  enablePrivateMode: 'enablePrivateMode',
   enableStatistics: 'enableStatistics',
   enableSubscription: 'enableSubscription',
   enableSystemMessage: 'enableSystemMessage',

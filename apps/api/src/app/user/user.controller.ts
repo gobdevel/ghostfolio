@@ -82,7 +82,7 @@ export class UserController {
       }
     }
 
-    if (this.configurationService.get('ENABLE_FEATURE_PRIVATE_SITE')) {
+    if (this.configurationService.get('ENABLE_FEATURE_PRIVATE_MODE')) {
       throw new HttpException(
         getReasonPhrase(StatusCodes.FORBIDDEN),
         StatusCodes.FORBIDDEN

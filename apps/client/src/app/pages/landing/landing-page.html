@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!hasPermissionForPrivateMode">
   <div class="row">
     <div class="col text-center">
       <h1 class="font-weight-bold intro mt-5">
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" *ngIf="!hasPermissionForPrivateMode">
   <div class="button-container mb-5 row">
     <div class="align-items-center col d-flex justify-content-center">
       <div class="text-center">

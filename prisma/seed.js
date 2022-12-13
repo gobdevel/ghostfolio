@@ -98,6 +98,16 @@ async function main() {
     where: { id: 'e37795df-0d25-42c2-9d9b-e4c6315623a1' }
   });
 
+  const platformEtrade = await prisma.platform.upsert({
+    create: {
+      id: '23e795df-0d25-42c2-1d9b-e4c631562a7e',
+      name: 'E*Trade',
+      url: 'https://us.etrade.com'
+    },
+    update: {},
+    where: { id: '23e795df-0d25-42c2-1d9b-e4c631562a7e' }
+  });
+
 /*
   const userDemo = await prisma.user.upsert({
     create: {
@@ -320,6 +330,7 @@ async function main() {
     platformSwissquote,
     platformZerodha,
     platformIciciDirect,
+    platformEtrade,
   });
 }
 

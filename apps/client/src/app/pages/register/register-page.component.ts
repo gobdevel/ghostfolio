@@ -25,6 +25,7 @@ export class RegisterPageComponent implements OnDestroy, OnInit {
   public demoAuthToken: string;
   public deviceType: string;
   public hasPermissionForSocialLogin: boolean;
+  public hasPermissionForPrivateMode: boolean;
   public historicalDataItems: LineChartItem[];
   public info: InfoItem;
 
@@ -51,6 +52,10 @@ export class RegisterPageComponent implements OnDestroy, OnInit {
     this.hasPermissionForSocialLogin = hasPermission(
       globalPermissions,
       permissions.enableSocialLogin
+    );
+    this.hasPermissionForPrivateMode = hasPermission(
+      globalPermissions,
+      permissions.enablePrivateMode
     );
   }
 

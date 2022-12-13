@@ -42,6 +42,13 @@ export class AuthService {
   }
 
   public async validateInternetIdentityLogin(principalId: string) {
+    if (this.configurationService.get('ENABLE_FEATURE_PRIVATE_MODE')) {
+      throw new InternalServerErrorException(
+        'validateInternetIdentityLogin',
+        'Feature Not Supported !!!'
+      );
+    }
+
     try {
       const provider: Provider = 'INTERNET_IDENTITY';
 

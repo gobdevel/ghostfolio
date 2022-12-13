@@ -85,6 +85,10 @@ export class InfoService {
       globalPermissions.push(permissions.enableSocialLogin);
     }
 
+    if (this.configurationService.get('ENABLE_FEATURE_PRIVATE_MODE')) {
+      globalPermissions.push(permissions.enablePrivateMode);
+    }
+
     if (this.configurationService.get('ENABLE_FEATURE_STATISTICS')) {
       globalPermissions.push(permissions.enableStatistics);
     }
