@@ -50,7 +50,7 @@ export function getPermissions(aRole: Role): string[] {
       ];
 
     case 'DEMO':
-      return [permissions.createUserAccount];
+      return [];
 
     case 'USER':
       return [

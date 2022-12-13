@@ -82,6 +82,13 @@ export class UserController {
       }
     }
 
+    if (this.configurationService.get('ENABLE_FEATURE_PRIVATE_SITE')) {
+      throw new HttpException(
+        getReasonPhrase(StatusCodes.FORBIDDEN),
+        StatusCodes.FORBIDDEN
+      );
+    }
+
     const hasAdmin = await this.userService.hasAdmin();
 
     const { accessToken, id, role } = await this.userService.createUser({

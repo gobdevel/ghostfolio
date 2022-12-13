@@ -78,6 +78,27 @@ async function main() {
     where: { id: '1377d9df-0d25-42c2-9d9b-e4c63156291f' }
   });
 
+  const platformZerodha = await prisma.platform.upsert({
+    create: {
+      id: '137723df-0d25-42c2-9d9b-e4c63156264d',
+      name: 'Zerodha',
+      url: 'https://www.zerodha.com'
+    },
+    update: {},
+    where: { id: '137723df-0d25-42c2-9d9b-e4c63156264d' }
+  });
+
+  const platformIciciDirect = await prisma.platform.upsert({
+    create: {
+      id: 'e37795df-0d25-42c2-9d9b-e4c6315623a1',
+      name: 'Icici Direct',
+      url: 'https://www.icicidirect.com'
+    },
+    update: {},
+    where: { id: 'e37795df-0d25-42c2-9d9b-e4c6315623a1' }
+  });
+
+/*
   const userDemo = await prisma.user.upsert({
     create: {
       accessToken:
@@ -287,6 +308,7 @@ async function main() {
     ],
     skipDuplicates: true
   });
+*/
 
   console.log({
     platformBitcoinSuisse,
@@ -296,7 +318,8 @@ async function main() {
     platformInteractiveBrokers,
     platformPostFinance,
     platformSwissquote,
-    userDemo
+    platformZerodha,
+    platformIciciDirect,
   });
 }
 
